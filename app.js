@@ -52,7 +52,7 @@ document.addEventListener('mouseleave',function(){cu.classList.remove('on')});
 /* character: camera glides between sections, head follows cursor */
 var stage=$('#stage'),head=$('#head'),body=$('#body'),secs=[$('#top'),$('#about'),$('#projects'),lg,$('#contact')],tops=[];
 var D=[{x:50,h:45,s:1},{x:75,h:46,s:1.3},{x:77,h:46,s:1.55},{x:82,h:40,s:.9},{x:77,h:46,s:1.25}];
-var M=[{x:50,h:43,s:1},{x:78,h:91,s:.62},{x:78,h:91,s:.62},{x:78,h:91,s:.62},{x:78,h:91,s:.62}];
+var M=[{x:50,h:43,s:1},{x:50,h:25,s:.8},{x:50,h:25,s:.8},{x:50,h:25,s:.8},{x:50,h:25,s:.8}];
 function meas(){tops=secs.map(function(s){return s.offsetTop})}meas();addEventListener('resize',meas);addEventListener('load',meas);
 var nx=0,ny=0,cs={x:50,h:45,s:1};
 function frame(t){
@@ -65,7 +65,7 @@ function frame(t){
  else{tx=cl((mx-px)/(vw*.4),-1,1);ty=cl((my-py)/(vh*.4),-1,1)}
  nx+=(tx-nx)*.08;ny+=(ty-ny)*.08;
  stage.style.transform='translate(-50%,-50%) translate('+(X+nx*16)+'px,'+(Y+ny*8)+'px) scale('+sc+')';
- stage.style.opacity=1;stage.style.zIndex=mob&&sy>vh*.6?4:1;
+ stage.style.opacity=1;
  head.style.transform='perspective(900px) translate('+nx*9+'px,'+ny*6+'px) rotateY('+nx*20+'deg) rotateX('+-ny*11+'deg) rotateZ('+nx*3.5+'deg)';
  body.style.transform='perspective(1100px) translateX('+nx*5+'px) rotateY('+nx*3+'deg)';
  var near=mx!==null&&Math.hypot(mx-px,my-py)<r.width*.3;
